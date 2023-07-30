@@ -1,6 +1,5 @@
 import os
 import logging
-import re
 
 from ..constants import LogLevelOptions as loglevel, EnvironmentVariableKeys as envkey, defaults as appDefaults
 

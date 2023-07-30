@@ -1,21 +1,22 @@
 > **Note**
 > See the latest GitHub release and select the corresponding branch or tag above for applicable README instructions
 
-# Template Prometheus Exporter
+# Ecowater Prometheus Exporter
 ![Current Version](https://img.shields.io/badge/Version-0.1.0a-brightgreen)
 
-This is a prometheus exporter for the template API.
+This is a prometheus exporter for the Ecowater API. OEMs such as Rheem use this API to provide Wi-Fi connectivity 
+to their smart water softeners.
 
 See [the sample metrics](data/metrics.txt) for a list of metrics you can query in prometheus.
 
-Internally it uses the [py_template python library](https://github.com/ejsuncy/py_template).
+Internally it uses the [py_ecowater python library](https://github.com/ejsuncy/py_ecowater).
 
 The image can be found on
-[GitHub Packages](https://github.com/ejsuncy/template_prometheus_exporter/pkgs/container/template_prometheus_exporter). 
+[GitHub Packages](https://github.com/ejsuncy/ecowater_prometheus_exporter/pkgs/container/ecowater_prometheus_exporter). 
 
 ## Usage
 ```shell
-docker pull ghcr.io/ejsuncy/template_prometheus_exporter:0.1.0a
+docker pull ghcr.io/ejsuncy/ecowater_prometheus_exporter:0.1.0a
 ```
 
 ### Environment Variables
@@ -29,7 +30,7 @@ The following environment variables are supported:
 | `TZ`                 | The timezone to use for the container. Use the string in `TZ database name` column of the [List of TZ Database Time Zones](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). |                                     | None (container defaults to UTC time) |
 | `EXPORTER_PORT`      | The port to listen on                                                                                                                                                                     |                                     | `10003`                               |
 | `EXPORTER_BIND_HOST` | The address to listen on                                                                                                                                                                  |                                     | `0.0.0.0`                             |
-| `EXPORTER_NAMESPACE` | The prefix to use for prometheus metrics                                                                                                                                                  |                                     | `template_prom_namespace`             |
+| `EXPORTER_NAMESPACE` | The prefix to use for prometheus metrics                                                                                                                                                  |                                     | `ecowater`                            |
 | `CONFIG_FILE`        | The container filepath to the config file                                                                                                                                                 |                                     | `/etc/exporter/config.yaml`           |
 
 ### Running locally with docker or docker-compose
@@ -49,7 +50,7 @@ docker run --rm \
 -e TZ="$TZ" \
 -p"10003:10003" \
 --mount type=bind,source="$CONFIG_DIR"/volumes,target=/etc/exporter \
-ghcr.io/ejsuncy/template_prometheus_exporter:0.1.0a
+ghcr.io/ejsuncy/ecowater_prometheus_exporter:0.1.0a
 ```
 
 Run via docker-compose:
@@ -71,7 +72,7 @@ A sample manifest:
 apiVersion: v1
 kind: Service
 metadata:
-  name: prometheus-exporters-template
+  name: prometheus-exporters-ecowater
 spec:
   type: LoadBalancer
   ports:
@@ -80,14 +81,14 @@ spec:
       targetPort: 10003
       protocol: TCP
   selector:
-    app: prometheus-exporters-template
+    app: prometheus-exporters-ecowater
 ---
 
 # Secrets
 apiVersion: v1
 kind: Secret
 metadata:
-  name: secrets-template
+  name: secrets-ecowater
 type: Opaque
 data:
   # obtain b64 encoded password with `echo -n "<password>" | b64`
@@ -98,21 +99,21 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: prometheus-exporters-template
-  name: prometheus-exporters-template
+    app: prometheus-exporters-ecowater
+  name: prometheus-exporters-ecowater
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: prometheus-exporters-template
+      app: prometheus-exporters-ecowater
   template:
     metadata:
       labels:
-        app: prometheus-exporters-template
+        app: prometheus-exporters-ecowater
     spec:
       containers:
-      - image: ghcr.io/ejsuncy/template_prometheus_exporter:0.1.0a
-        name: template
+      - image: ghcr.io/ejsuncy/ecowater_prometheus_exporter:0.1.0a
+        name: ecowater
         resources:
           limits:
             cpu: 200m
@@ -133,7 +134,7 @@ spec:
             value: America/Denver
         envFrom:
           - secretRef:
-              name: secrets-template
+              name: secrets-ecowater
 ```
 
 Of course, you should fine-tune the memory and cpu requests and limits.
@@ -150,13 +151,13 @@ data:
       external_labels:
         monitor: 'k8s-prom-monitor'
     scrape_configs:
-      - job_name: 'template'
+      - job_name: 'ecowater'
         metrics_path: /metrics
         scrape_interval: 3m
         scrape_timeout: 1m
         static_configs:
           - targets:
-              - 'prometheus-exporters-template'
+              - 'prometheus-exporters-ecowater'
 kind: ConfigMap
 metadata:
   name: prometheus-config

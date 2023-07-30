@@ -11,8 +11,7 @@ setuptools.setup(
     python_requires='>=3.11',
     install_requires=[
         'prometheus_client',
-        # todo: set the correct python library name
-        'template_python_library'
+        'py_ecowater',
         'pyyaml'
     ]
 )

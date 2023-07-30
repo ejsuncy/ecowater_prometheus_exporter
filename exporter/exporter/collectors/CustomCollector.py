@@ -9,9 +9,7 @@ class CustomCollector(object):
     def __init__(self, namespace: str, subsystem_prefix: str = '', subsystem_item_unit: str = ''):
         self.namespace: str = namespace
         self.subsystemPrefix: str = subsystem_prefix
-        self.subsystemItemUnit: str = subsystem_item_unit
-        self.metric: GaugeMetricFamily = None
-        self.labels: [str] = []
+        self.commonLabels: [str] = []
 
         self.scrapesTotalMetric = Counter("total", f"Total number of scrapes for {self.subsystemPrefix} stats",
                                           subsystem=f"{self.subsystemPrefix}_scrapes",
@@ -30,24 +28,15 @@ class CustomCollector(object):
                                                      f"Duration of last scrape for {self.subsystemPrefix} stats",
                                                      subsystem="", namespace=self.namespace)
 
-    def build_name(self):
+    def build_name(self, name: str):
         full_name = ''
         if self.namespace:
             full_name += f"{self.namespace}_"
         if self.subsystemPrefix:
             full_name += f"{self.subsystemPrefix}_"
-        if self.subsystemItemUnit:
-            full_name += self.subsystemItemUnit
+        if name:
+            full_name += name
 
         return full_name
 
-    '''
-    This function resets the stats that are scraped from external apis
-    '''
-
-    def reset(self):
-        metricName = self.build_name()
-        metricDescription = f"{self.subsystemPrefix} measurement in {self.subsystemItemUnit}"
-
-        self.metric = GaugeMetricFamily(metricName, metricDescription, labels=self.labels)
 

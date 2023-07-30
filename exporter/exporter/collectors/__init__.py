@@ -1,1 +1,1 @@
-from .TemplateCollector import TemplateCollector
+from .SystemCollector import SystemCollector
