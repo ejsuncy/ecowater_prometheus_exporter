@@ -2,7 +2,7 @@
 > See the latest GitHub release and select the corresponding branch or tag above for applicable README instructions
 
 # Ecowater Prometheus Exporter
-![Current Version](https://img.shields.io/badge/Version-0.1.0-brightgreen)
+![Current Version](https://img.shields.io/badge/Version-0.2.0a-brightgreen)
 
 This is a prometheus exporter for the Ecowater API. OEMs such as Rheem use this API to provide Wi-Fi connectivity 
 to their smart water softeners.
@@ -16,7 +16,7 @@ The image can be found on
 
 ## Usage
 ```shell
-docker pull ghcr.io/ejsuncy/ecowater_prometheus_exporter:0.1.0
+docker pull ghcr.io/ejsuncy/ecowater_prometheus_exporter:0.2.0a
 ```
 
 ### Environment Variables
@@ -50,7 +50,7 @@ docker run --rm \
 -e TZ="$TZ" \
 -p"10003:10003" \
 --mount type=bind,source="$CONFIG_DIR"/volumes,target=/etc/exporter \
-ghcr.io/ejsuncy/ecowater_prometheus_exporter:0.1.0
+ghcr.io/ejsuncy/ecowater_prometheus_exporter:0.2.0a
 ```
 
 Run via docker-compose:
@@ -112,7 +112,7 @@ spec:
         app: prometheus-exporters-ecowater
     spec:
       containers:
-      - image: ghcr.io/ejsuncy/ecowater_prometheus_exporter:0.1.0
+      - image: ghcr.io/ejsuncy/ecowater_prometheus_exporter:0.2.0a
         name: ecowater
         resources:
           limits:
