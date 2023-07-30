@@ -2,13 +2,13 @@ import time
 import logging
 from typing import Dict
 
-from exporter import TemplateCollector
+from exporter import SystemCollector
 from exporter import EnvironmentParser,FileParser
 
 from prometheus_client import start_http_server, REGISTRY
 
 
-class ExporterApplication():
+class ExporterApplication:
     def __init__(self):
         self.exporter_namespace: str = None
         self.exporter_port: str = None
@@ -16,8 +16,8 @@ class ExporterApplication():
         self.app_configs: Dict = None
 
     def register_collectors(self):
-        logging.debug("Initializing and registering TemplateCollector")
-        collector = TemplateCollector(self.exporter_namespace)
+        logging.debug("Initializing and registering SystemCollector")
+        collector = SystemCollector(self.exporter_namespace)
         REGISTRY.register(collector)
 
     def start_server(self):

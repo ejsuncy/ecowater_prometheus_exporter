@@ -1,1 +1,150 @@
-# template metrics - replace contents with sample output from the server's /metrics endpoint
+# HELP python_gc_objects_collected_total Objects collected during gc
+# TYPE python_gc_objects_collected_total counter
+python_gc_objects_collected_total{generation="0"} 391.0
+python_gc_objects_collected_total{generation="1"} 0.0
+python_gc_objects_collected_total{generation="2"} 0.0
+# HELP python_gc_objects_uncollectable_total Uncollectable objects found during GC
+# TYPE python_gc_objects_uncollectable_total counter
+python_gc_objects_uncollectable_total{generation="0"} 0.0
+python_gc_objects_uncollectable_total{generation="1"} 0.0
+python_gc_objects_uncollectable_total{generation="2"} 0.0
+# HELP python_gc_collections_total Number of times this generation was collected
+# TYPE python_gc_collections_total counter
+python_gc_collections_total{generation="0"} 60.0
+python_gc_collections_total{generation="1"} 5.0
+python_gc_collections_total{generation="2"} 0.0
+# HELP python_info Python platform information
+# TYPE python_info gauge
+python_info{implementation="CPython",major="3",minor="9",patchlevel="2",version="3.9.2"} 1.0
+# HELP process_virtual_memory_bytes Virtual memory size in bytes.
+# TYPE process_virtual_memory_bytes gauge
+process_virtual_memory_bytes 1.83382016e+08
+# HELP process_resident_memory_bytes Resident memory size in bytes.
+# TYPE process_resident_memory_bytes gauge
+process_resident_memory_bytes 2.6554368e+07
+# HELP process_start_time_seconds Start time of the process since unix epoch in seconds.
+# TYPE process_start_time_seconds gauge
+process_start_time_seconds 1.69074479104e+09
+# HELP process_cpu_seconds_total Total user and system CPU time spent in seconds.
+# TYPE process_cpu_seconds_total counter
+process_cpu_seconds_total 0.48
+# HELP process_open_fds Number of open file descriptors.
+# TYPE process_open_fds gauge
+process_open_fds 6.0
+# HELP process_max_fds Maximum number of open file descriptors.
+# TYPE process_max_fds gauge
+process_max_fds 1.048576e+06
+# HELP ecowater_system_scrapes_total Total number of scrapes for system stats
+# TYPE ecowater_system_scrapes_total counter
+ecowater_system_scrapes_total 1.0
+# HELP ecowater_system_scrapes_created Total number of scrapes for system stats
+# TYPE ecowater_system_scrapes_created gauge
+ecowater_system_scrapes_created 1.6907447923339207e+09
+# HELP ecowater_system_scrape_errors_total Total number of scrape errors for system stats
+# TYPE ecowater_system_scrape_errors_total counter
+ecowater_system_scrape_errors_total 0.0
+# HELP ecowater_system_scrape_errors_created Total number of scrape errors for system stats
+# TYPE ecowater_system_scrape_errors_created gauge
+ecowater_system_scrape_errors_created 1.6907447923339345e+09
+# HELP ecowater_last_system_scrape_error Status of last scrape for system stats (1=error, 0=success)
+# TYPE ecowater_last_system_scrape_error gauge
+ecowater_last_system_scrape_error 0.0
+# HELP ecowater_last_system_scrape_timestamp Number of seconds between 1970 and last scrape for system stats
+# TYPE ecowater_last_system_scrape_timestamp gauge
+ecowater_last_system_scrape_timestamp 1.6907447947014692e+09
+# HELP ecowater_last_system_scrape_duration_seconds Duration of last scrape for system stats
+# TYPE ecowater_last_system_scrape_duration_seconds gauge
+ecowater_last_system_scrape_duration_seconds 2.367493152618408
+# HELP ecowater_system_attributes System attributes
+# TYPE ecowater_system_attributes gauge
+ecowater_system_attributes{ac_role_name="User",base_software_version="r4.4 MPC01082",dealer_access="False",description_rental_access="1",description_unit_owner="customer",device_date="07/30/2023, 15:09:03",id="AybBYhYp7NLbBYhYp7MiM+w==",is_filter_system="False",is_rental="False",is_restricted="False",is_super_hero="False",model_description="Rheem RHW42",model_id="lScRN3iGWLlScRmDWLlSolQ==",model_name="108201",nickname="Water Softener",power="Online",serial_number="SL0000000A",water_shutoff_valve_control="True"} 1.0
+# HELP ecowater_system_alerts_enabled System alerts enabled
+# TYPE ecowater_system_alerts_enabled gauge
+ecowater_system_alerts_enabled{id="AMiM+w==",nickname="Water Softener",serial_number="SL00000000000A"} 0.0
+# HELP ecowater_system_alarms_active System alarms active
+# TYPE ecowater_system_alarms_active gauge
+ecowater_system_alarms_active{id="AMiM+w==",nickname="Water Softener",serial_number="SL00000000000A"} 0.0
+# HELP ecowater_system_iron_level_tenths_ppm System iron level tenths ppm
+# TYPE ecowater_system_iron_level_tenths_ppm gauge
+ecowater_system_iron_level_tenths_ppm{id="AMiM+w==",nickname="Water Softener",serial_number="SL00000000000A"} 0.0
+# HELP ecowater_system_hardness_unit_enum System hardness unit enum - Salt Type - 0=NaCl, 1=KCl
+# TYPE ecowater_system_hardness_unit_enum gauge
+ecowater_system_hardness_unit_enum{id="AMiM+w==",nickname="Water Softener",serial_number="SL00000000000A"} 0.0
+# HELP ecowater_system_hardness_grains System hardness grains - inlet water hardness (1-140 gpg)
+# TYPE ecowater_system_hardness_grains gauge
+ecowater_system_hardness_grains{id="AMiM+w==",nickname="Water Softener",serial_number="SL00000000000A"} 11.0
+# HELP ecowater_system_salt_level_tenths_value System salt level tenths value
+# TYPE ecowater_system_salt_level_tenths_value gauge
+ecowater_system_salt_level_tenths_value{id="AMiM+w==",nickname="Water Softener",serial_number="SL00000000000A"} 20.0
+# HELP ecowater_system_salt_level_tenths_percent System salt level tenths percent
+# TYPE ecowater_system_salt_level_tenths_percent gauge
+ecowater_system_salt_level_tenths_percent{id="AMiM+w==",nickname="Water Softener",serial_number="SL00000000000A"} 25.0
+# HELP ecowater_system_salt_monitor_enum System salt monitor enum
+# TYPE ecowater_system_salt_monitor_enum gauge
+ecowater_system_salt_monitor_enum{id="AMiM+w==",nickname="Water Softener",serial_number="SL00000000000A"} 1.0
+# HELP ecowater_system_volume_unit_enum System volume unit enum - 0=Gallons, 1=Liters
+# TYPE ecowater_system_volume_unit_enum gauge
+ecowater_system_volume_unit_enum{id="AMiM+w==",nickname="Water Softener",serial_number="SL00000000000A"} 0.0
+# HELP ecowater_system_regen_enable_enum System regen enable enum - 0=Off, 1=On
+# TYPE ecowater_system_regen_enable_enum gauge
+ecowater_system_regen_enable_enum{id="AMiM+w==",nickname="Water Softener",serial_number="SL00000000000A"} 1.0
+# HELP ecowater_system_regen_time_secs System regen time - secs after midnight. ie 7200 = 2am
+# TYPE ecowater_system_regen_time_secs gauge
+ecowater_system_regen_time_secs{id="AMiM+w==",nickname="Water Softener",serial_number="SL00000000000A"} 7200.0
+# HELP ecowater_system_time_format_enum System time format enum - 0=12hr, 1=24hr
+# TYPE ecowater_system_time_format_enum gauge
+ecowater_system_time_format_enum{id="AMiM+w==",nickname="Water Softener",serial_number="SL00000000000A"} 0.0
+# HELP ecowater_system_time_zone_enum System time zone enum
+# TYPE ecowater_system_time_zone_enum gauge
+ecowater_system_time_zone_enum{id="AMiM+w==",nickname="Water Softener",serial_number="SL00000000000A",time_zone="America/Denver"} 1.0
+# HELP ecowater_system_date_format_enum System date format enum - 0=mm/dd/yyyy, 1=dd/mm/yyyy
+# TYPE ecowater_system_date_format_enum gauge
+ecowater_system_date_format_enum{id="AMiM+w==",nickname="Water Softener",serial_number="SL00000000000A"} 0.0
+# HELP ecowater_system_water_shutoff_valve_req System water shutoff valve required
+# TYPE ecowater_system_water_shutoff_valve_req gauge
+ecowater_system_water_shutoff_valve_req{id="AMiM+w==",nickname="Water Softener",serial_number="SL00000000000A"} 0.0
+# HELP ecowater_system_total_water_available_gallons System total water available gallons
+# TYPE ecowater_system_total_water_available_gallons gauge
+ecowater_system_total_water_available_gallons{id="AMiM+w==",nickname="Water Softener",serial_number="SL00000000000A"} 2070.0
+# HELP ecowater_system_current_water_flow System current water flow
+# TYPE ecowater_system_current_water_flow gauge
+ecowater_system_current_water_flow{id="AMiM+w==",nickname="Water Softener",serial_number="SL00000000000A"} 0.0
+# HELP ecowater_system_gallons_used_today System gallons used today
+# TYPE ecowater_system_gallons_used_today gauge
+ecowater_system_gallons_used_today{id="AMiM+w==",nickname="Water Softener",serial_number="SL00000000000A"} 86.0
+# HELP ecowater_system_average_daily_use_gallons System average daily use gallons
+# TYPE ecowater_system_average_daily_use_gallons gauge
+ecowater_system_average_daily_use_gallons{id="AMiM+w==",nickname="Water Softener",serial_number="SL00000000000A"} 90.0
+# HELP ecowater_system_regen_status_enum System regen status enum - 0=Not Running, 1=Running
+# TYPE ecowater_system_regen_status_enum gauge
+ecowater_system_regen_status_enum{id="AMiM+w==",nickname="Water Softener",serial_number="SL00000000000A"} 0.0
+# HELP ecowater_system_out_of_salt_estimated_days System out of salt estimated days
+# TYPE ecowater_system_out_of_salt_estimated_days gauge
+ecowater_system_out_of_salt_estimated_days{id="AMiM+w==",nickname="Water Softener",serial_number="SL00000000000A"} 129.0
+# HELP ecowater_system_days_since_last_regen System days since last regen
+# TYPE ecowater_system_days_since_last_regen gauge
+ecowater_system_days_since_last_regen{id="AMiM+w==",nickname="Water Softener",serial_number="SL00000000000A"} 15.0
+# HELP ecowater_system_system_type_value System system type value
+# TYPE ecowater_system_system_type_value gauge
+ecowater_system_system_type_value{id="AMiM+w==",nickname="Water Softener",serial_number="SL00000000000A",value="demand softener"} 1.0
+# HELP ecowater_system_system_type_type System system type type
+# TYPE ecowater_system_system_type_type gauge
+ecowater_system_system_type_type{id="AMiM+w==",nickname="Water Softener",serial_number="SL00000000000A",type="softener"} 1.0
+# HELP ecowater_system_water_shutoff_valve System water shutoff valve state
+# TYPE ecowater_system_water_shutoff_valve gauge
+ecowater_system_water_shutoff_valve{id="AMiM+w==",nickname="Water Softener",serial_number="SL00000000000A"} 0.0
+# HELP ecowater_system_water_shutoff_valve_installed System water shutoff valve installed
+# TYPE ecowater_system_water_shutoff_valve_installed gauge
+ecowater_system_water_shutoff_valve_installed{id="AMiM+w==",nickname="Water Softener",serial_number="SL00000000000A"} 1.0
+# HELP ecowater_system_water_shutoff_valve_override System water shutoff valve override state
+# TYPE ecowater_system_water_shutoff_valve_override gauge
+ecowater_system_water_shutoff_valve_override{id="AMiM+w==",nickname="Water Softener",serial_number="SL00000000000A"} 0.0
+# HELP ecowater_system_water_shutoff_valve_device_action System water shutoff valve device action state - whether the valve is currently opening or closing
+# TYPE ecowater_system_water_shutoff_valve_device_action gauge
+ecowater_system_water_shutoff_valve_device_action{id="AMiM+w==",nickname="Water Softener",serial_number="SL00000000000A"} 0.0
+# HELP ecowater_system_water_shutoff_valve_error_code System water shutoff valve error code
+# TYPE ecowater_system_water_shutoff_valve_error_code gauge
+ecowater_system_water_shutoff_valve_error_code{id="AMiM+w==",nickname="Water Softener",serial_number="SL00000000000A"} 0.0
+# HELP ecowater_system_refresh_policy_time System refresh policy (ms). delay label describes low/med/high
+# TYPE ecowater_system_refresh_policy_time gauge
+ecowater_system_refresh_policy_time{delay="low",id="AMiM+w==",nickname="Water Softener",serial_number="SL00000000000A"} 300000.0
