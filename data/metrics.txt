@@ -1,0 +1,1 @@
+# template metrics - replace contents with sample output from the server's /metrics endpoint

@@ -1,0 +1,14 @@
+services:
+  exporter:
+    # reference the image tag you want to use
+#    image: "ghcr.io/ejsuncy/template_prometheus_exporter:0.1.0a"
+    # or build from the Dockerfile
+    build: .
+    ports:
+      - "9993:9993"
+    environment:
+      ACCOUNT_USERNAME: "${ACCOUNT_USERNAME}"
+      ACCOUNT_PASSWORD: "${ACCOUNT_PASSWORD}"
+      TZ: "America/Denver"
+    volumes:
+      - ./volumes:/etc/exporter
