@@ -4,8 +4,17 @@
 # Ecowater Prometheus Exporter
 ![Current Version](https://img.shields.io/badge/Version-0.2.0a-brightgreen)
 
-This is a prometheus exporter for the Ecowater API. OEMs such as Rheem use this API to provide Wi-Fi connectivity 
+This is a prometheus exporter for the Ecowater API. OEMs such as Rheem use this API to provide Wi-Fi connectivity
 to their smart water softeners.
+
+> **Note**
+> The Ecowater API only allows 250 requests over 6 hours. 
+
+The exporter currently does not implement any rate limiting, so
+callers to the `/metrics` endpoint (prometheus configuration) should limit their scrape interval to 15 minutes or more.
+This means that the exporter will not be able to provide real-time water flow metrics; however, you can infer historical 
+water flow by calculating the average rate of change in the total water usage metric over each scrape interval. This also 
+means that the exporter's alarms/alerts metrics should not be used for critical alerting.
 
 See [the sample metrics](data/metrics.txt) for a list of metrics you can query in prometheus.
 
