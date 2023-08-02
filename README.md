@@ -147,14 +147,14 @@ apiVersion: v1
 data:
   prometheus_config: |
     global:
-      scrape_interval: 15s
+      scrape_interval: 15m
       external_labels:
         monitor: 'k8s-prom-monitor'
     scrape_configs:
       - job_name: 'ecowater'
         metrics_path: /metrics
-        scrape_interval: 3m
-        scrape_timeout: 1m
+        scrape_interval: 15m
+        scrape_timeout: 10s
         static_configs:
           - targets:
               - 'prometheus-exporters-ecowater'
